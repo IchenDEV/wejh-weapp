@@ -1,7 +1,10 @@
 import toast from "./toast";
 import logger from "./logger";
 
-export default function ({ $store, isDev }) {
+export default function ({
+  $store,
+  isDev
+}) {
   return (object) => {
     const token = $store.getState("session", "token") || "";
     if (token) {
@@ -43,6 +46,9 @@ export default function ({ $store, isDev }) {
             duration: 2000,
             title: data.errmsg || "请求错误",
           });
+        $store.setState("session", {
+          isLoggedIn: false
+        })
         if (object.back) {
           setTimeout(() => {
             wx.navigateBack({
@@ -76,6 +82,7 @@ export default function ({ $store, isDev }) {
           duration: 2000,
           title: "请求错误",
         });
+
       if (object.back) {
         setTimeout(() => {
           wx.navigateBack({

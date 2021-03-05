@@ -4,14 +4,18 @@
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: bottom center;
+  margin: 1em;
+  border-radius: 1em;
+  box-shadow: $shadow;
 
-  & > .header {
+  &>.header {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-left: 30rpx;
     height: 70rpx;
     border-bottom: 1rpx solid $gray-200;
+
     .image {
       position: relative;
       display: block;
@@ -44,11 +48,11 @@
     }
   }
 
-  & > .content {
+  &>.content {
     padding: 0 30rpx;
   }
 
-  & > .bottom {
+  &>.bottom {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,6 +67,7 @@
     flex-direction: column;
     align-items: stretch;
     overflow: hidden;
+
     .timetable-item {
       display: flex;
       flex-direction: row;
@@ -70,15 +75,18 @@
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px dotted #e5e5e5;
+
       &:last-child {
         border-bottom: none;
       }
+
       .main-info {
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         max-width: 70%;
+
         .name {
           line-height: 200%;
           font-size: 32rpx;
@@ -86,6 +94,7 @@
           overflow: hidden;
           text-overflow: ellipsis;
         }
+
         .info {
           font-size: 24rpx;
           line-height: 125%;
@@ -112,6 +121,7 @@
       flex-direction: row;
       justify-content: space-between;
       padding: 10rpx 0;
+
       .label {
         font-size: 26rpx;
       }
@@ -127,6 +137,7 @@
       justify-content: center;
       font-weight: bold;
       padding: 25rpx 0 30rpx;
+
       .value {
         font-size: 96rpx;
         line-height: 1;
@@ -163,6 +174,7 @@
       justify-content: space-between;
       padding: 20rpx 0 20rpx;
       color: $gray-600;
+
       .label {
         font-size: 26rpx;
       }
@@ -183,11 +195,13 @@
         flex-direction: column;
         padding: 5rpx 5rpx 50rpx 38rpx;
         margin-bottom: 10rpx;
+
         .book {
           position: relative;
           width: 176rpx;
           height: 231rpx;
           overflow: hidden;
+
           .icon-book {
             position: absolute;
             left: 0;
@@ -224,10 +238,12 @@
             color: #729fc3;
             padding: 0 8rpx;
           }
+
           .unit {
             font-size: 24rpx;
             color: #acacac;
           }
+
           &.red {
             .date {
               color: #ff7b7d;

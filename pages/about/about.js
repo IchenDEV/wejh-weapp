@@ -1,6 +1,6 @@
 import toast from "../../utils/toast";
 import dayjs from "../../libs/dayjs/dayjs.min.js";
-
+import {Refing} from "../../utils/wechatx/wechatx"
 const app = getApp();
 
 Page({
@@ -18,6 +18,10 @@ Page({
   onLoad() {
     app.$store.connect(this, "about");
     this.observe("static", "devMenuEnabled");
+    Refing(this.data,(newVal)=>{
+      console.log(newVal)
+      this.setPageState(newVal)
+    })
   },
   onUnload() {
     this.disconnect();
@@ -41,8 +45,6 @@ Page({
     }
   },
   toggleShowCommitHash() {
-    this.setPageState({
-      isShowCommitHash: !this.data.isShowCommitHash,
-    });
+    this.data.isShowCommitHash=!this.data.isShowCommitHash;
   },
 });

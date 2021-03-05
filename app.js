@@ -13,7 +13,7 @@ dayjs.extend(dayjs_customParseFormat);
 
 const env = (key) => envConfig[key];
 
-const version = "1.0.24";
+const version = "2.0";
 
 let versionType = "release";
 let versionTypeName = "Release";
@@ -44,9 +44,8 @@ if (isDev) {
 const store = new WejhStore({
   debug: isDev,
   fields: {
-    // session 域用于存储不可持久化的数据
     session: {
-      isPersistent: false,
+      isPersistent: true,
     },
     // common 域用于存放可持久化的、来源于请求的数据
     common: {
@@ -79,9 +78,10 @@ App({
   versionType: versionTypeName,
   onLaunch: function () {
     autoUpdate();
-    this.wxLogin(this.getOpenId, () => {
-      logger.info("app", "自动登录成功");
-    });
+    if (!store.getState("session","isLoggedIn"))
+      this.wxLogin(this.getOpenId, () => {
+        logger.info("app", "自动登录成功");
+      });
   },
   getOpenId(code, afterLogin) {
     const _this = this;
@@ -94,8 +94,7 @@ App({
         () => {
           _this.autoLogin();
           afterLogin();
-        },
-        {
+        }, {
           data: {
             code,
           },
@@ -114,7 +113,10 @@ App({
       const grade = userInfo.uno.substring(0, 4);
 
       const info = wx.getStorageInfoSync() || {};
-      const { currentSize, limitSize } = info;
+      const {
+        currentSize,
+        limitSize
+      } = info;
 
       wx.reportAnalytics("user_login", {
         uno: userInfo.uno,
@@ -157,10 +159,11 @@ App({
           toast({
             title: "自动登录成功",
           });
-          const { user: userInfo } = res.data.data;
+          const {
+            user: userInfo
+          } = res.data.data;
           this.reportUserInfo(userInfo);
-        },
-        {
+        }, {
           data: {
             type: "weapp",
             openid: openId,
@@ -168,35 +171,6 @@ App({
         }
       );
   },
-  // goFeedback: () => {
-  //   const userInfo = store.getState("session", "userInfo");
-  //   wx.getNetworkType({
-  //     success: function (res) {
-  //       // 返回网络类型, 有效值：
-  //       // wifi/2g/3g/4g/unknown(Android下不常见的网络类型)/none(无网络)
-  //       const networkType = res.networkType;
-  //       const customData = {
-  //         clientInfo: systemInfo.SDKVersion,
-  //         clientVersion: systemInfo.version,
-  //         os: systemInfo.platform,
-  //         osVersion: systemInfo.system,
-  //         netType: networkType,
-  //         customInfo: JSON.stringify({
-  //           uno: userInfo.uno,
-  //           version,
-  //         }),
-  //       };
-  //       logger.info("app", "跳转到反馈社区", customData);
-  //       wx.navigateToMiniProgram({
-  //         appId: "wx8abaf00ee8c3202e",
-  //         extraData: {
-  //           id: "19048",
-  //           customData,
-  //         },
-  //       });
-  //     },
-  //   });
-  // },
   systemInfo,
   isDev: isDev,
   env,

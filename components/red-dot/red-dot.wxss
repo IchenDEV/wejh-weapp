@@ -1,5 +1,5 @@
 .red-dot {
-  background-color: #ff6c6c;
+  background-color: #fc4646b4;
 }
 
 .red-dot.disabled {

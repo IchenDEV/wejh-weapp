@@ -21,7 +21,8 @@ export default class WejhStore {
         var storageData = {};
         try {
           storageData = this.readFromLocalStorage(field);
-        } catch (err) {
+        } 
+        catch (err) {
           logger.warn(
             `Failed to read key '${field}' from local storage with error: `,
             err
@@ -71,10 +72,6 @@ export default class WejhStore {
           ...value,
         };
       }
-      // if (_this.debug) {
-      //   console.log(`currentData: `, this.data);
-      // }
-
       callback(value);
     }.bind(page);
 
@@ -164,7 +161,6 @@ export default class WejhStore {
         if (value[remoteKey]) {
           const callback = callbackMap[localKey];
           const targetState = value[remoteKey] || null;
-
           page.setPageState(
             {
               [localKey]: targetState,

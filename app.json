@@ -28,17 +28,18 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#7acfa6",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "微精弘",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#f0eff5",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f5f5",
     "enablePullDownRefresh": true,
     "pageOrientation": "portrait"
   },
   "tabBar": {
-    "color": "#7f848a",
+    "color": "#8f848a",
     "selectedColor": "#7acfa6",
-    "backgroundColor": "#f7f6fb",
+    "backgroundColor": "white",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",

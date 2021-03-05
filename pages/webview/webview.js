@@ -14,6 +14,9 @@ Page({
     this.setPageState({
       ...option,
     });
+    wx.setNavigationBarTitle({
+      title: option.title,
+    })
   },
   onUnload() {
     this.disconnect();

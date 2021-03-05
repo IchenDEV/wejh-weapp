@@ -10,11 +10,6 @@ function getInfoFromTerm(term) {
   return { year: null, semester: null };
 }
 
-// function validateTerm(term) {
-//   return /^\d{4}\/\d{4}\(\d\)/.test(term);
-// }
-
 module.exports = {
   getInfoFromTerm,
-  // validateTerm,
 };

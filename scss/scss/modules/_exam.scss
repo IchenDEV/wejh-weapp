@@ -71,10 +71,12 @@
         display: flex;
         flex-direction: column;
         font-size: 30rpx;
-        padding: 0 40rpx;
+        padding: 1em 1em;
         margin-bottom: 20rpx;
         background-color: $white;
-        border-radius: 3px;
+        border-radius: 1em;
+        transition: all 1s ease;
+        box-shadow: $shadow;
 
         .head {
           position: relative;

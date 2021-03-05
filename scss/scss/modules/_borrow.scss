@@ -1,18 +1,23 @@
 .m-borrow {
   .main-info {
     display: flex;
-    background: #fefefe;
-    border-bottom: 1rpx solid #eee;
+    background-color: #ffffff;
+    box-shadow: $shadow;
+    padding-top: 2em;
+    padding-bottom: 2em;
 
     .info-item {
       flex: 1;
       display: flex;
+      background-color: #ffffff;
       flex-direction: column;
       font-size: 30rpx;
       line-height: 120%;
       height: 150rpx;
       padding: 20rpx;
-      border-right: 1rpx solid #eee;
+      margin: 0.5em;
+      border-radius: 1em;
+      box-shadow: $shadow;
       .label {
         color: #777;
       }
@@ -23,6 +28,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: stretch;
+
         .value {
           font-size: 74rpx;
           color: $theme-blue;
@@ -76,17 +82,14 @@
         justify-content: space-between;
         font-size: 24rpx;
         color: #888;
-        .borrow-date {
-        }
 
-        .return-date {
-        }
+        .borrow-date {}
 
-        .label {
-        }
+        .return-date {}
 
-        .value {
-        }
+        .label {}
+
+        .value {}
       }
     }
   }

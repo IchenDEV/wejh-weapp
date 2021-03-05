@@ -30,6 +30,7 @@ export default function ({ store, fetch }) {
             store.setState("session", {
               token: token,
               userInfo: userInfo,
+              isLoggedIn:true
             });
             updateLoggedInState();
             callback && callback(res);

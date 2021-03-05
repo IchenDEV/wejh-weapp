@@ -30,8 +30,10 @@ Page({
     this.tooltip = this.selectComponent("#tooltip");
     this.announcementModal = this.selectComponent("#announcementModal");
 
-    this.observe("session", "isLoggedIn", null, (newVal) => {
+    this.observe("session", "isLoggedIn", null, (newVal, old) => {
+
       if (newVal.isLoggedIn) {
+        console.log("isLoggedIn change ", newVal.isLoggedIn);
         this.fetchHomeCards();
       }
     });
@@ -45,7 +47,9 @@ Page({
     this.observe("session", "unclearedBadges");
 
     this.observe("session", "announcement", null, (newValues) => {
-      const { announcement } = newValues;
+      const {
+        announcement
+      } = newValues;
       if (!announcement) {
         return;
       }
@@ -53,7 +57,9 @@ Page({
         app.$store.getState("static", "announcementId") || 0;
       if (announcementId < announcement.id) {
         this.announcementModal.show();
-        app.$store.setState("static", { announcementId: announcement.id });
+        app.$store.setState("static", {
+          announcementId: announcement.id
+        });
       }
     });
 
@@ -88,7 +94,10 @@ Page({
     });
   },
   updateTodayTimetable() {
-    const { timetableFixed, time } = this.data;
+    const {
+      timetableFixed,
+      time
+    } = this.data;
     if (!timetableFixed || !time) {
       return;
     }
@@ -111,7 +120,9 @@ Page({
     });
   },
   bootstrap() {
-    app.services.getBootstrapInfo(null, { showError: false });
+    app.services.getBootstrapInfo(null, {
+      showError: false
+    });
   },
   fetchHomeCards() {
     app.services.getTimetable(null, {
@@ -184,11 +195,10 @@ Page({
       );
       logger.info("index", "前往 webview", appItem.url);
       return wx.navigateTo({
-        url:
-          "/pages/webview/webview?" +
+        url: "/pages/webview/webview?" +
           Object.keys(appItem)
-            .map((key) => key + "=" + encodeURIComponent(appItem[key]))
-            .join("&"),
+          .map((key) => key + "=" + encodeURIComponent(appItem[key]))
+          .join("&"),
       });
     }
     if (appItem.module) {

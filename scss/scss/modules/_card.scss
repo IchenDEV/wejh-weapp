@@ -7,8 +7,7 @@
     margin: 25rpx 50rpx 45rpx;
     background: $theme-yellow;
     border-radius: 15rpx;
-    box-shadow: 5rpx 5rpx 15rpx #ccc;
-
+    box-shadow: $shadow;
     .black-line {
       position: absolute;
       top: 40rpx;
@@ -16,6 +15,7 @@
       right: 0;
       height: 80rpx;
       background: #7b7b7b;
+      box-shadow: $shadow;
     }
 
     .icon {
@@ -173,7 +173,8 @@
     flex-direction: column;
     margin: 0 30rpx 100rpx;
     background: $white;
-    border-radius: 3px;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
     .head {
       display: flex;
       justify-content: center;

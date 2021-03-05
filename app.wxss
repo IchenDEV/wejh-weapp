@@ -49,7 +49,7 @@
 }
 
 .f-bg-gray {
-  background-color: #f0eff5;
+  background-color: #f5f5f5;
 }
 
 .f-bg-gray-form-gradient {
@@ -331,7 +331,7 @@ text {
 .u-confirm-btn {
   width: 100%;
   text-align: center;
-  background-color: #7acfa6;
+  background-color: rgba(135, 185, 161, 0.7);
   padding: 20rpx 0;
   border-radius: 10rpx;
 }
@@ -349,7 +349,7 @@ text {
   padding: 30rpx 10rpx 10rpx;
   width: 100%;
   background-color: #fff;
-  border-bottom: 1px solid #e9ecef;
+  box-shadow: 0.5em 0.5rem 2em 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
 }
 
 .m-app-list .item {
@@ -378,6 +378,8 @@ text {
   width: 84rpx;
   height: 84rpx;
   margin-bottom: 16rpx;
+  box-shadow: 0 1rem 1rem 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
+  border-radius: 1em;
 }
 
 .m-app-list .item .item-image .item-icon {
@@ -433,7 +435,7 @@ text {
   flex-direction: row;
   justify-content: space-between;
   padding: 25rpx 30rpx 40rpx;
-  background-color: #7acfa6;
+  background-color: rgba(135, 185, 161, 0.7);
 }
 
 .m-user-info .left {
@@ -577,9 +579,9 @@ text {
   padding: 0 8rpx;
   height: 40rpx;
   font-size: 24rpx;
-  border: 1rpx solid #7acfa6;
+  border: 1rpx solid rgba(135, 185, 161, 0.7);
   border-radius: 8rpx;
-  color: #7acfa6;
+  color: rgba(135, 185, 161, 0.7);
 }
 
 .m-about .content {
@@ -636,7 +638,7 @@ text {
   height: 500rpx;
   flex-direction: column;
   align-items: center;
-  background-color: #7acfa6;
+  background-color: rgba(135, 185, 161, 0.7);
   transform: translateX(-50%);
 }
 
@@ -815,7 +817,7 @@ text {
 }
 
 .m-wave-form .input-group.active {
-  border: 2px solid #7acfa6;
+  border: 2px solid rgba(135, 185, 161, 0.7);
 }
 
 .m-wave-form .confirm-btn {
@@ -1025,11 +1027,11 @@ text {
 }
 
 .m-timetable-box .timetable-box .timetable-content .card-content .day-lessons .lesson .card.green {
-  background-color: #7acfa6;
+  background-color: rgba(135, 185, 161, 0.7);
 }
 
 .m-timetable-box .timetable-box .timetable-content .card-content .day-lessons .lesson .card.red {
-  background-color: #e78ab0;
+  background-color: rgba(248, 50, 149, 0.7);
 }
 
 .m-timetable-box .timetable-box .timetable-content .card-content .day-lessons .lesson .card.blue {
@@ -1104,11 +1106,11 @@ text {
 }
 
 .m-timetable-box .lesson-detail .detail-content .card.green {
-  background-color: #7acfa6;
+  background-color: rgba(135, 185, 161, 0.7);
 }
 
 .m-timetable-box .lesson-detail .detail-content .card.red {
-  background-color: #e78ab0;
+  background-color: rgba(248, 50, 149, 0.7);
 }
 
 .m-timetable-box .lesson-detail .detail-content .card.blue {
@@ -1249,7 +1251,7 @@ text {
   color: #fff;
   margin: 6rpx 0;
   border-radius: 8rpx;
-  background-color: #e78ab0;
+  background-color: rgba(248, 50, 149, 0.7);
   line-height: 32rpx;
   text-align: center;
   word-wrap: break-word;
@@ -1285,13 +1287,15 @@ text {
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
-  border-top-left-radius: 30rpx;
-  border-top-right-radius: 30rpx;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+  box-shadow: 0 -0.5em 2em 0.5em rgba(42, 44, 58, 0.15), 0rem 1em 1em 2px rgba(129, 165, 238, 0.1);
   font-size: 30rpx;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
   border: 1rpx solid #e9ecef;
   transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+  padding: .5em;
   box-sizing: content-box;
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
@@ -1299,7 +1303,7 @@ text {
 
 .m-footer-bar.green {
   border: none;
-  background: #7acfa6;
+  background: rgba(135, 185, 161, 0.7);
 }
 
 .m-footer-bar.blue {
@@ -1309,7 +1313,7 @@ text {
 
 .m-footer-bar.red {
   border: none;
-  background: #e78ab0;
+  background: rgba(248, 50, 149, 0.7);
 }
 
 .m-footer-bar.purple {
@@ -1452,11 +1456,11 @@ text {
   border-radius: 3px;
   color: #fff;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-  background-color: #7acfa6;
+  background-color: rgba(135, 185, 161, 0.7);
 }
 
 .m-remind-box .remind-btn.red {
-  background-color: #e78ab0;
+  background-color: rgba(248, 50, 149, 0.7);
 }
 
 .m-score {
@@ -1526,7 +1530,8 @@ text {
 
 .m-score .score-content {
   background: #fff;
-  border-radius: 6rpx;
+  border-radius: 1em;
+  box-shadow: 0.5em 0.5rem 2em 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
 }
 
 .m-score .score-content .content-header {
@@ -1567,7 +1572,7 @@ text {
 
 .m-score .score-content .content-header .main .gpa .title {
   font-size: 46rpx;
-  color: #e78ab0;
+  color: rgba(248, 50, 149, 0.7);
   font-weight: bold;
   text-align: right;
 }
@@ -1603,7 +1608,7 @@ text {
   bottom: 12rpx;
   width: 32rpx;
   height: 32rpx;
-  background-color: #e78ab0;
+  background-color: rgba(248, 50, 149, 0.7);
   border-radius: 12rpx;
 }
 
@@ -1723,7 +1728,7 @@ text {
 }
 
 .m-score .score-content .score-list .score-item.open .head .name {
-  color: #e78ab0;
+  color: rgba(248, 50, 149, 0.7);
 }
 
 .m-score .score-content .score-list .score-item.open .head .arrow {
@@ -1811,10 +1816,12 @@ text {
   display: flex;
   flex-direction: column;
   font-size: 30rpx;
-  padding: 0 40rpx;
+  padding: 1em 1em;
   margin-bottom: 20rpx;
   background-color: #fff;
-  border-radius: 3px;
+  border-radius: 1em;
+  transition: all 1s ease;
+  box-shadow: 0.5em 0.5rem 2em 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
 }
 
 .m-exam .exam-content .exam-list .exam-item .head {
@@ -1891,7 +1898,7 @@ text {
 }
 
 .m-exam .exam-content .exam-list .exam-item.open .head .name {
-  color: #7acfa6;
+  color: rgba(135, 185, 161, 0.7);
 }
 
 .m-exam .exam-content .exam-list .exam-item.open .head .arrow {
@@ -1929,7 +1936,7 @@ text {
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
-  background-color: #e78ab0;
+  background-color: rgba(248, 50, 149, 0.7);
   color: white;
   font-size: 32rpx;
 }
@@ -1971,7 +1978,7 @@ text {
 }
 
 .m-freeroom .room-display .build .room-list .room-item.disabled {
-  background-color: #e78ab0;
+  background-color: rgba(248, 50, 149, 0.7);
 }
 
 .m-freeroom .room-display .build .room-list .room-item.disabled .name {
@@ -2337,7 +2344,7 @@ text {
   margin: 25rpx 50rpx 45rpx;
   background: #ffcb63;
   border-radius: 15rpx;
-  box-shadow: 5rpx 5rpx 15rpx #ccc;
+  box-shadow: 0.5em 0.5rem 2em 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
 }
 
 .m-card .card .black-line {
@@ -2347,6 +2354,7 @@ text {
   right: 0;
   height: 80rpx;
   background: #7b7b7b;
+  box-shadow: 0.5em 0.5rem 2em 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
 }
 
 .m-card .card .icon {
@@ -2472,7 +2480,7 @@ text {
   top: 15px;
   height: 265px;
   width: 6rpx;
-  background: #e78ab0;
+  background: rgba(248, 50, 149, 0.7);
 }
 
 .m-card .balance-graph .graph-area .y-text {
@@ -2506,7 +2514,8 @@ text {
   flex-direction: column;
   margin: 0 30rpx 100rpx;
   background: #fff;
-  border-radius: 3px;
+  border-radius: 1em;
+  box-shadow: 0.5em 0.5rem 2em 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
 }
 
 .m-card .card-detail .head {
@@ -2549,19 +2558,24 @@ text {
 
 .m-borrow .main-info {
   display: flex;
-  background: #fefefe;
-  border-bottom: 1rpx solid #eee;
+  background-color: #ffffff;
+  box-shadow: 0.5em 0.5rem 2em 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .m-borrow .main-info .info-item {
   flex: 1;
   display: flex;
+  background-color: #ffffff;
   flex-direction: column;
   font-size: 30rpx;
   line-height: 120%;
   height: 150rpx;
   padding: 20rpx;
-  border-right: 1rpx solid #eee;
+  margin: 0.5em;
+  border-radius: 1em;
+  box-shadow: 0.5em 0.5rem 2em 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
 }
 
 .m-borrow .main-info .info-item .label {
@@ -2636,6 +2650,9 @@ text {
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: bottom center;
+  margin: 1em;
+  border-radius: 1em;
+  box-shadow: 0.5em 0.5rem 2em 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
 }
 
 .m-index-card > .header {
@@ -3009,7 +3026,7 @@ text {
 }
 
 .m-feedback .feedback-list-item-icon-red {
-  background-color: #ff6c6c;
+  background-color: #fc4646b4;
 }
 
 .m-feedback .feedback-list-item-icon-blue {
@@ -3035,7 +3052,7 @@ text {
   margin-right: 0;
   font-size: 10pt;
   color: #fff;
-  background-color: #7acfa6;
+  background-color: rgba(135, 185, 161, 0.7);
   border-radius: 10rpx;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -3106,7 +3123,7 @@ text {
 }
 
 .m-qna .qna-content .qna-list .qna-item.open .head {
-  title-color: #7acfa6;
+  title-color: rgba(135, 185, 161, 0.7);
 }
 
 .m-qna .qna-content .qna-list .qna-item.open .head .arrow {

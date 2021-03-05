@@ -6,8 +6,7 @@
   padding: 30rpx 10rpx 10rpx;
   width: 100%;
   background-color: $white;
-  border-bottom: 1px solid $gray-200;
-
+  box-shadow: $shadow;
   .item {
     position: relative;
     display: flex;
@@ -33,13 +32,17 @@
       width: 84rpx;
       height: 84rpx;
       margin-bottom: 16rpx;
+      box-shadow: 0 1rem 1rem 0 rgba(42, 44, 58, .15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, .1);
+      border-radius: 1em;
 
       .item-icon {
         z-index: 9;
         position: absolute;
         width: 84rpx;
         height: 84rpx;
+
       }
+
       .item-icon-text {
         z-index: 9;
         position: absolute;
@@ -49,6 +52,7 @@
         color: $white;
         font-weight: bold;
       }
+
       .item-icon-bg {
         position: absolute;
         width: 84rpx;

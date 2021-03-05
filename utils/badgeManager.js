@@ -70,7 +70,7 @@ export default function ({ store }) {
   };
 
   const _this = badgeManager;
-
+console.log(store)
   store.connect(badgeManager, "badgeManager");
   badgeManager.observe("session", "badges", null, (newValue) => {
     logger.debug("badgeManager", "Received new badges config", newValue);

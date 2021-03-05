@@ -1,6 +1,7 @@
 @charset "UTF-8";
 $footer-padding: 40rpx;
 $footer-font-size: 28rpx;
+
 // 底部包含切换功能的bar
 .m-footer-bar {
   position: fixed;
@@ -8,15 +9,15 @@ $footer-font-size: 28rpx;
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
-
-  border-top-left-radius: 30rpx;
-  border-top-right-radius: 30rpx;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+  box-shadow: 0 -0.5em 2em 0.5em rgba(42, 44, 58, 0.15), 0rem 1em 1em 2px rgba(129, 165, 238, 0.1);
   font-size: 30rpx;
-  background-color: $white;
+  background-color: rgba($color: #ffffff, $alpha: 0.7);
+  backdrop-filter: blur(10px);
   border: 1rpx solid $gray-200;
   transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
-
+  padding: .5em;
   box-sizing: content-box;
   @include safe-area-inset-bottom(padding-bottom);
 
@@ -56,7 +57,8 @@ $footer-font-size: 28rpx;
 
   .left {
     padding-left: $footer-padding;
-    & > text {
+
+    &>text {
       font-size: $footer-font-size;
       color: $white;
     }
@@ -82,7 +84,7 @@ $footer-font-size: 28rpx;
       justify-content: center;
     }
 
-    & > text {
+    &>text {
       font-size: $footer-font-size;
       color: $white;
     }
@@ -90,7 +92,8 @@ $footer-font-size: 28rpx;
 
   .right {
     padding-right: $footer-padding;
-    & > text {
+
+    &>text {
       font-size: $footer-font-size;
       color: $white;
     }
@@ -103,7 +106,7 @@ $footer-font-size: 28rpx;
     height: 100%;
     width: 100rpx;
 
-    & > .icon {
+    &>.icon {
       width: 30rpx;
       height: 30rpx;
     }
@@ -118,7 +121,7 @@ $footer-font-size: 28rpx;
     width: 42rpx;
     height: 42rpx;
 
-    & > text {
+    &>text {
       position: absolute;
       z-index: 1;
       bottom: 0;

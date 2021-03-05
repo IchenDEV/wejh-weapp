@@ -10,11 +10,16 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black: #000 !default;
 
-$theme-green: #7acfa6;
+
+$theme-white: rgba(255, 255, 255, 0.7);
+$theme-green: rgba(135, 185, 161, 0.7);
 $theme-blue: #73b4ef;
 $theme-purple: #9f8bea;
-$theme-pink: #e78ab0;
-$theme-red: #ff6c6c;
+$theme-pink: rgba(248, 50, 149, 0.7);
+$theme-red: #fc4646b4;
 $theme-yellow: #ffcb63;
 
 $tabbar-bottom: 100rpx;
+
+$shadow:.5em .5rem 2em 0 rgba(42, 44, 58, .15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, .1);
+$border-radius:1em;

@@ -1,25 +1,3 @@
-// // 判断是否为纯粹对象
-// function isPlainObject(obj) {
-//   if (
-//     !obj ||
-//     obj.toString() !== "[object Object]" ||
-//     obj.nodeType ||
-//     obj.setInterval
-//   ) {
-//     return false;
-//   }
-//   if (
-//     obj.constructor &&
-//     !obj.hasOwnProperty("constructor") &&
-//     !obj.constructor.prototype.hasOwnProperty("isPrototypeOf")
-//   ) {
-//     return false;
-//   }
-//   for (let key in obj) {
-//   }
-//   return key === undefined || obj.hasOwnProperty(key);
-// }
-
 function colorLessons(lessons) {
   const colorArr = ["red", "yellow", "purple", "blue", "green"];
   const colorMap = {};

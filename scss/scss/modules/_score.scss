@@ -62,7 +62,8 @@
 
   .score-content {
     background: $white;
-    border-radius: 6rpx;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
 
     .content-header {
       display: flex;
