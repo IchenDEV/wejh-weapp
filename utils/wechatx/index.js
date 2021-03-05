@@ -110,7 +110,9 @@ export function defineReactive(obj, key, val) {
       if (newVal === value || (newVal !== newVal && value !== value)) {
         return;
       }
+      val = newVal
       dep.notify(); //通知数据变化
+      
     },
   });
 }
