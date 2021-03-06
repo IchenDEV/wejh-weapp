@@ -48,12 +48,6 @@
         "selectedIconPath": "images/tabBar/index@active.png"
       },
       {
-        "pagePath": "pages/news/index",
-        "text": "资讯",
-        "iconPath": "images/tabBar/news.png",
-        "selectedIconPath": "images/tabBar/news@active.png"
-      },
-      {
         "pagePath": "pages/home/home",
         "text": "我的",
         "iconPath": "images/tabBar/more.png",

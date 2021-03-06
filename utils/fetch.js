@@ -46,9 +46,6 @@ export default function ({
             duration: 2000,
             title: data.errmsg || "请求错误",
           });
-        $store.setState("session", {
-          isLoggedIn: false
-        })
         if (object.back) {
           setTimeout(() => {
             wx.navigateBack({

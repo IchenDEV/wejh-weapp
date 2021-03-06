@@ -1,4 +1,6 @@
-import { API } from "./api";
+import {
+  API
+} from "./api";
 
 import util from "./util";
 import termUtil from "./termPicker";
@@ -7,38 +9,22 @@ import logger from "./logger";
 
 import dayjs from "../libs/dayjs/dayjs.min.js";
 
-export default function ({ store, fetch }) {
+export default function ({
+  store,
+  fetch
+}) {
   const updateLoggedInState = () => {
     if (
       store.getState("session", "token") &&
       store.getState("session", "time")
     ) {
-      store.setState("session", { isLoggedIn: true });
+      store.setState("session", {
+        isLoggedIn: true
+      });
     }
   };
   return {
-    autoLogin(callback = function () {}, options) {
-      fetch({
-        url: API("autoLogin"),
-        method: "POST",
-        showError: true,
-        ...options,
-        success: (res) => {
-          const result = res.data;
-          if (result.errcode > 0) {
-            const { token, user: userInfo } = result.data;
-            store.setState("session", {
-              token: token,
-              userInfo: userInfo,
-              isLoggedIn:true
-            });
-            updateLoggedInState();
-            callback && callback(res);
-          }
-        },
-      });
-    },
-    getOpenId(callback = function () {}, options) {
+    auth(callback = function () {}, options) {
       fetch({
         url: API("code"),
         method: "POST",
@@ -46,11 +32,18 @@ export default function ({ store, fetch }) {
         ...options,
         success: (res) => {
           const result = res.data;
-          const openId = result.data.openid;
-          store.setState("common", {
-            openId,
-          });
-          callback && callback(res);
+          if (result.errcode > 0) {
+            const {
+              token,
+              user: userInfo
+            } = result.data;
+            store.setState("session", {
+              token: token,
+              userInfo: userInfo,
+            });
+            updateLoggedInState();
+            callback && callback(res);
+          }
         },
       });
     },

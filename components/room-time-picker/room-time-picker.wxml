@@ -1,0 +1,11 @@
+<picker
+  class="term-btn"
+  hover-class="active"
+  mode="multiSelector"
+  value="{{value}}"
+  range="{{range}}"
+  header-text= "请选择校区和时间"
+  bindchange="onPickerChange"
+>
+  <text class="title">{{currentStr||'选择校区和时间'}}</text>
+</picker>

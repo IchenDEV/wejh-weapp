@@ -435,7 +435,8 @@ text {
   flex-direction: row;
   justify-content: space-between;
   padding: 25rpx 30rpx 40rpx;
-  background-color: rgba(135, 185, 161, 0.7);
+  background-color: #fff;
+  box-shadow: 0.5em 0.5rem 2em 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
 }
 
 .m-user-info .left {
@@ -449,7 +450,6 @@ text {
   height: 120rpx;
   border-radius: 10rpx;
   background-color: #fff;
-  border: 1rpx solid #93eac1;
   overflow: hidden;
 }
 
@@ -467,7 +467,6 @@ text {
 
 .m-user-info .left .main-info .name {
   margin-bottom: 6rpx;
-  color: #fff;
   font-size: 40rpx;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -475,7 +474,6 @@ text {
 }
 
 .m-user-info .left .main-info .uno {
-  color: #fff;
   font-size: 28rpx;
   opacity: 0.8;
 }
@@ -496,14 +494,12 @@ text {
 }
 
 .m-user-info .right .time-info .term {
-  color: #fff;
   font-size: 28rpx;
   opacity: 0.8;
 }
 
 .m-user-info .right .time-info .week {
   margin-top: 24rpx;
-  color: #fff;
   font-size: 28rpx;
   opacity: 0.8;
 }
@@ -1031,7 +1027,7 @@ text {
 }
 
 .m-timetable-box .timetable-box .timetable-content .card-content .day-lessons .lesson .card.red {
-  background-color: rgba(248, 50, 149, 0.7);
+  background-color: rgba(255, 8, 132, 0.7);
 }
 
 .m-timetable-box .timetable-box .timetable-content .card-content .day-lessons .lesson .card.blue {
@@ -1110,7 +1106,7 @@ text {
 }
 
 .m-timetable-box .lesson-detail .detail-content .card.red {
-  background-color: rgba(248, 50, 149, 0.7);
+  background-color: rgba(255, 8, 132, 0.7);
 }
 
 .m-timetable-box .lesson-detail .detail-content .card.blue {
@@ -1251,7 +1247,7 @@ text {
   color: #fff;
   margin: 6rpx 0;
   border-radius: 8rpx;
-  background-color: rgba(248, 50, 149, 0.7);
+  background-color: rgba(255, 8, 132, 0.7);
   line-height: 32rpx;
   text-align: center;
   word-wrap: break-word;
@@ -1313,7 +1309,7 @@ text {
 
 .m-footer-bar.red {
   border: none;
-  background: rgba(248, 50, 149, 0.7);
+  background: rgba(255, 8, 132, 0.7);
 }
 
 .m-footer-bar.purple {
@@ -1460,7 +1456,7 @@ text {
 }
 
 .m-remind-box .remind-btn.red {
-  background-color: rgba(248, 50, 149, 0.7);
+  background-color: rgba(255, 8, 132, 0.7);
 }
 
 .m-score {
@@ -1572,7 +1568,7 @@ text {
 
 .m-score .score-content .content-header .main .gpa .title {
   font-size: 46rpx;
-  color: rgba(248, 50, 149, 0.7);
+  color: rgba(255, 8, 132, 0.7);
   font-weight: bold;
   text-align: right;
 }
@@ -1608,7 +1604,7 @@ text {
   bottom: 12rpx;
   width: 32rpx;
   height: 32rpx;
-  background-color: rgba(248, 50, 149, 0.7);
+  background-color: rgba(255, 8, 132, 0.7);
   border-radius: 12rpx;
 }
 
@@ -1728,7 +1724,7 @@ text {
 }
 
 .m-score .score-content .score-list .score-item.open .head .name {
-  color: rgba(248, 50, 149, 0.7);
+  color: rgba(255, 8, 132, 0.7);
 }
 
 .m-score .score-content .score-list .score-item.open .head .arrow {
@@ -1919,13 +1915,17 @@ text {
   flex: 1;
   display: flex;
   flex-flow: column nowrap;
-  height: 60vh;
+  height: 100vh;
 }
 
 .m-freeroom .room-display .build {
-  padding: 30rpx 45rpx 0;
+  padding: 30rpx 45rpx 40rpx;
   display: flex;
   flex-direction: row;
+}
+
+.m-freeroom .room-display .build:last-child {
+  margin-bottom: 80rpx;
 }
 
 .m-freeroom .room-display .build .build-name {
@@ -1936,7 +1936,7 @@ text {
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
-  background-color: rgba(248, 50, 149, 0.7);
+  background-color: rgba(255, 8, 132, 0.7);
   color: white;
   font-size: 32rpx;
 }
@@ -1954,11 +1954,12 @@ text {
   align-items: center;
   margin-right: 40rpx;
   margin-bottom: 20rpx;
-  padding: 10rpx 10rpx;
+  padding: 10rpx;
   width: 150rpx;
   font-size: 28rpx;
   background-color: #f8f9fa;
-  border-radius: 10rpx;
+  border-radius: 1em;
+  box-shadow: 0.5em 0.5rem 2em 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
 }
 
 .m-freeroom .room-display .build .room-list .room-item:nth-child(3n + 0) {
@@ -1969,6 +1970,7 @@ text {
   padding-bottom: 10rpx;
   border-bottom: 1rpx solid #dee2e6;
   color: #343a40;
+  text-align: center;
   font-size: 20rpx;
 }
 
@@ -1978,7 +1980,7 @@ text {
 }
 
 .m-freeroom .room-display .build .room-list .room-item.disabled {
-  background-color: rgba(248, 50, 149, 0.7);
+  background-color: rgba(255, 8, 132, 0.7);
 }
 
 .m-freeroom .room-display .build .room-list .room-item.disabled .name {
@@ -2480,7 +2482,7 @@ text {
   top: 15px;
   height: 265px;
   width: 6rpx;
-  background: rgba(248, 50, 149, 0.7);
+  background: rgba(255, 8, 132, 0.7);
 }
 
 .m-card .balance-graph .graph-area .y-text {
@@ -3026,7 +3028,7 @@ text {
 }
 
 .m-feedback .feedback-list-item-icon-red {
-  background-color: #fc4646b4;
+  background-color: rgba(255, 2, 2, 0.7);
 }
 
 .m-feedback .feedback-list-item-icon-blue {

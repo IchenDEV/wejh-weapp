@@ -24,55 +24,36 @@
       </view>
     </scroll-view>
     <!--空教室的的查询选项-->
-    <view class="room-condition">
-      <!-- 查询块，一整条 -->
-      <view
-        class="condition-block"
-        wx:for="{{conditions}}"
-        wx:for-item="block"
-        data-index="{{block_id}}"
-        wx:key="block_id"
-        wx:for-index="block_id"
-      >
-        <!-- 单个查询条件，选项条 -->
-        <scroll-view
-          scroll-x="true"
-          class="condition {{condition.name}}"
-          data-type="{{condition.name}}"
-          wx:for="{{block}}"
-          data-type="{{condition_key}}"
-          wx:for-item="condition"
-          wx:key="block_id"
-          wx:for-index="condition_key"
-          scroll-into-view="option_{{block_id}}_{{form[condition.name]}}"
+
+    <view class="m-footer-bar green">
+    <view class="content">
+   
+        <view
+          class="toolbar-icon"
+          hover-class="active"
+          hover-stay-time="500"
+          bindtap="toggleRefresh"
         >
-          <!-- 选项 -->
-          <view
-            catchtap="chooseOption"
-            data-type="{{condition.name}}"
-            data-value="{{item.value}}"
-            data-badge-path="{{item.badge.path || ''}}"
-            class="option{{form[condition.name] == item.value ? ' active' : ''}}"
-            id="option_{{block_id}}_{{option_id}}"
-            wx:for="{{condition.options}}"
-            wx:key="name"
-            wx:for-index="option_id"
-          >
-            <text class="text">{{item.text}}</text>
-            <image
-              class="choose-bg"
-              src="/images/app-list/{{optionsColor[condition.name]}}.png"
-            ></image>
-            <red-dot
-              wx:if="{{item.badge}}"
-              class="badge"
-              path="{{item.badge.path}}"
-              displayMode="{{ {type: 'simple'} }}"
-              unclearedBadges="{{unclearedBadges}}"
-            ></red-dot>
-          </view>
-        </scroll-view>
+          <image class="icon" src="/images/common/refresh.png"></image>
+        </view>
+  
+      <view class="vertical">
+        <room-time-picker
+          bindroomTimeChange="roomTimeChange"
+          currentData="{{form}}"
+        >
+        </room-time-picker>
+        <cache-tip timestamp="{{lastUpdated}}" title="考试安排"></cache-tip>
       </view>
+
+      <view
+          class="toolbar-icon"
+          hover-class="active"
+          hover-stay-time="500"
+        >
+          <image class="icon"></image>
+        </view>
     </view>
+  </view>
   </view>
 </view>

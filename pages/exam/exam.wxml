@@ -45,7 +45,7 @@
               <text class="subtitle"
                 ><text
                   class="countdown{{item['倒计时'] <= 3 && item['倒计时'] >= 0 ? ' red' : ''}}"
-                  >{{item['倒计时名']}}</text
+                  >{{item['日期']}}</text
                 >
                 {{item['教室']}}</text
               >
@@ -59,13 +59,8 @@
             <view class="detail-item">
               <text class="label">日期</text>
               <text class="content"
-                >{{item['日']}} ({{item['周'] ? item['周'] + '周-' :
-                ''}}星期{{item['星期名']}})</text
+                >{{item['日']}}</text
               >
-            </view>
-            <view class="detail-item">
-              <text class="label">时间</text>
-              <text class="content">{{item['时段']}}</text>
             </view>
             <view class="detail-item">
               <text class="label">地点</text>

@@ -8,13 +8,15 @@ $room-option-height: 10vh;
     flex: 1;
     display: flex;
     flex-flow: column nowrap;
-    height: 60vh;
+    height: 100vh;
 
     .build {
-      padding: 30rpx 45rpx 0;
+      &:last-child{
+        margin-bottom: 80rpx;
+      }
+      padding: 30rpx 45rpx 40rpx;
       display: flex;
       flex-direction: row;
-
       .build-name {
         display: flex;
         align-items: center;
@@ -34,17 +36,19 @@ $room-option-height: 10vh;
         flex-direction: row;
         flex-wrap: wrap;
 
+
         .room-item {
           display: flex;
           flex-direction: column;
           align-items: center;
           margin-right: 40rpx;
           margin-bottom: 20rpx;
-          padding: 10rpx 10rpx;
+          padding: 10rpx;
           width: 150rpx;
           font-size: 28rpx;
           background-color: $gray-100;
-          border-radius: 10rpx;
+          border-radius: $border-radius;
+          box-shadow: $shadow;
 
           &:nth-child(3n + 0) {
             margin-right: 0;
@@ -54,6 +58,7 @@ $room-option-height: 10vh;
             padding-bottom: 10rpx;
             border-bottom: 1rpx solid $gray-300;
             color: $gray-800;
+            text-align: center;
             font-size: 20rpx;
           }
 
@@ -99,6 +104,7 @@ $room-option-height: 10vh;
       &:nth-child(even) {
         background-color: #f1f1f2;
       }
+
       &:nth-child(odd) {
         background-color: #fbfaf8;
       }
@@ -155,6 +161,7 @@ $room-option-height: 10vh;
           .text {
             color: $white;
           }
+
           .choose-bg {
             display: block;
           }

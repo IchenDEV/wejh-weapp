@@ -6,10 +6,9 @@ import Services from "./utils/services";
 import logger from "./utils/logger";
 import autoUpdate from "./utils/autoUpdate";
 import envConfig from "./env";
-import dayjs from "./libs/dayjs/dayjs.min.js";
-import dayjs_customParseFormat from "./libs/dayjs/plugin/customParseFormat.js";
-
-dayjs.extend(dayjs_customParseFormat);
+import {
+  reportUserInfo
+} from "./utils/reporter"
 
 const env = (key) => envConfig[key];
 
@@ -78,66 +77,10 @@ App({
   versionType: versionTypeName,
   onLaunch: function () {
     autoUpdate();
-    if (!store.getState("session","isLoggedIn"))
-      this.wxLogin(this.getOpenId, () => {
-        logger.info("app", "自动登录成功");
-      });
+    if (!store.getState("session", "isLoggedIn"))
+      this.wxLogin(this.weJHLogin);
   },
-  getOpenId(code, afterLogin) {
-    const _this = this;
-    const openId = store.getState("common", "openId");
-    if (openId) {
-      _this.autoLogin();
-      afterLogin();
-    } else {
-      this.services.getOpenId(
-        () => {
-          _this.autoLogin();
-          afterLogin();
-        }, {
-          data: {
-            code,
-          },
-        }
-      );
-    }
-  },
-  reportUserInfo(userInfo) {
-    try {
-      const lastUpdate = dayjs(userInfo.updated_at, "YYYY-MM-DD hh:mm:ss");
-      if (!lastUpdate.isValid()) {
-        throw "`update_at` is invalid";
-      }
-      const daysDiff = dayjs().diff(lastUpdate, "day");
-
-      const grade = userInfo.uno.substring(0, 4);
-
-      const info = wx.getStorageInfoSync() || {};
-      const {
-        currentSize,
-        limitSize
-      } = info;
-
-      wx.reportAnalytics("user_login", {
-        uno: userInfo.uno,
-        grade: grade,
-        timetable_term: userInfo.ext.terms.class_term,
-        exam_term: userInfo.ext.terms.exam_term,
-        score_term: userInfo.ext.terms.score_term,
-        card_bind: userInfo.ext.passwords_bind.card_password,
-        lib_bind: userInfo.ext.passwords_bind.lib_password,
-        yc_bind: userInfo.ext.passwords_bind.yc_password,
-        zf_bind: userInfo.ext.passwords_bind.zf_password,
-        jh_bind: userInfo.ext.passwords_bind.jh_password,
-        last_update: Math.floor(daysDiff),
-        storage_free: limitSize - currentSize,
-        version: version,
-      });
-    } catch (err) {
-      logger.error("app", "登录埋点上报异常", err);
-    }
-  },
-  wxLogin(callback = this.getOpenId, afterLogin = function () {}) {
+  wxLogin(callback = this.getOpenId) {
     wx.login({
       success: (res) => {
         if (!res.code) {
@@ -147,29 +90,25 @@ App({
           });
           return;
         }
-        callback(res.code, afterLogin);
+        callback(res.code);
       },
     });
   },
-  autoLogin() {
-    const openId = store.getState("common", "openId");
-    openId &&
-      this.services.autoLogin(
-        (res) => {
-          toast({
-            title: "自动登录成功",
-          });
-          const {
-            user: userInfo
-          } = res.data.data;
-          this.reportUserInfo(userInfo);
-        }, {
-          data: {
-            type: "weapp",
-            openid: openId,
-          },
-        }
-      );
+  weJHLogin(code) {
+    this.services.auth(
+      (res) => {
+        const {
+          user: userInfo
+        } = res.data.data;
+        reportUserInfo(userInfo);
+      }, {
+        data: {
+          mode: "wechat",
+          code: code,
+        },
+      }
+    );
+
   },
   systemInfo,
   isDev: isDev,
