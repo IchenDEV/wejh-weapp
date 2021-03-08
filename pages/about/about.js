@@ -1,6 +1,6 @@
 import toast from "../../utils/toast";
 import dayjs from "../../libs/dayjs/dayjs.min.js";
-import {Refing} from "../../utils/wechatx/wechatx"
+import Store2 from "../../utils/store2";
 const app = getApp();
 
 Page({
@@ -16,15 +16,11 @@ Page({
     devMenuEnabled: false,
   },
   onLoad() {
-    app.$store.connect(this, "about");
-    this.observe("static", "devMenuEnabled");
-    Refing(this.data,(newVal)=>{
-      console.log(newVal)
-      this.setPageState(newVal)
-    })
+    app.$store2.connect(this,true)
+    app.$store2.bind(this,"devMenuEnabled");
   },
   onUnload() {
-    this.disconnect();
+    app.$store2.disconnect(this);
   },
   onShow() {
     this.data.headerTapCount = 0;
@@ -33,8 +29,11 @@ Page({
     this.data.headerTapCount += 1;
     if (this.data.headerTapCount === 5) {
       if (!this.data.devMenuEnabled) {
-        app.$store.setState("static", {
+        app.$store2.setState( {
           devMenuEnabled: true,
+        });
+        this.setPageState( {
+          isShowCommitHash: true,
         });
         this.data.headerTapCount = 0;
       }
@@ -45,6 +44,6 @@ Page({
     }
   },
   toggleShowCommitHash() {
-    this.data.isShowCommitHash=!this.data.isShowCommitHash;
+    this.data.isShowCommitHash = !this.data.isShowCommitHash;
   },
 });

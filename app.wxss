@@ -1738,7 +1738,7 @@ text {
 
 .m-exam {
   flex: 1;
-  padding: 0 30rpx 180rpx 30rpx;
+  padding: 0 0 180rpx;
 }
 
 .m-exam .exam-header {
@@ -1746,7 +1746,13 @@ text {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 50rpx 25rpx;
+  padding: 50rpx 50rpx;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0.5em 0.5rem 2em 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
 }
 
 .m-exam .exam-header .info {
@@ -1801,11 +1807,19 @@ text {
   height: 200rpx;
 }
 
+.m-exam .exam-content {
+  height: 100vh;
+}
+
 .m-exam .exam-content .exam-list {
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
   padding: 5rpx 0 15rpx;
+  height: calc(100vh - 350rpx);
+  padding: 1em;
+  overflow: auto;
+  height: 100vh;
 }
 
 .m-exam .exam-content .exam-list .exam-item {
@@ -1818,6 +1832,14 @@ text {
   border-radius: 1em;
   transition: all 1s ease;
   box-shadow: 0.5em 0.5rem 2em 0 rgba(42, 44, 58, 0.15), 11.737rem 22.074rem 32rem 0 rgba(129, 165, 238, 0.1);
+}
+
+.m-exam .exam-content .exam-list .exam-item:first-child {
+  margin-top: 300rpx;
+}
+
+.m-exam .exam-content .exam-list .exam-item:last-child {
+  margin-bottom: 100rpx;
 }
 
 .m-exam .exam-content .exam-list .exam-item .head {
@@ -2958,18 +2980,6 @@ text {
   border-radius: 10rpx;
   color: #fff;
   background-color: #45494d;
-}
-
-.m-cache-tip {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  font-size: 30rpx;
-  text-align: center;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .m-main-webview {

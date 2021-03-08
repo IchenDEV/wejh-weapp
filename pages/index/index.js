@@ -1,7 +1,7 @@
 import logger from "../../utils/logger";
 import toast from "../../utils/toast";
 import dayjs from "../../libs/dayjs/dayjs.min.js";
-
+const app = getApp();
 const initAppList = [];
 const initApp = {
   title: "加载中",
@@ -11,9 +11,6 @@ const initApp = {
 for (let i = 0; i < 10; i++) {
   initAppList.push(initApp);
 }
-
-const app = getApp();
-
 Page({
   data: {
     tinyTip: {
@@ -26,14 +23,11 @@ Page({
   },
   onLoad() {
     app.$store.connect(this, "index");
-
     this.tooltip = this.selectComponent("#tooltip");
     this.announcementModal = this.selectComponent("#announcementModal");
 
     this.observe("session", "isLoggedIn", null, (newVal, old) => {
-
       if (newVal.isLoggedIn) {
-        console.log("isLoggedIn change ", newVal.isLoggedIn);
         this.fetchHomeCards();
       }
     });
@@ -47,9 +41,7 @@ Page({
     this.observe("session", "unclearedBadges");
 
     this.observe("session", "announcement", null, (newValues) => {
-      const {
-        announcement
-      } = newValues;
+      const { announcement } = newValues;
       if (!announcement) {
         return;
       }
@@ -58,7 +50,7 @@ Page({
       if (announcementId < announcement.id) {
         this.announcementModal.show();
         app.$store.setState("static", {
-          announcementId: announcement.id
+          announcementId: announcement.id,
         });
       }
     });
@@ -94,10 +86,7 @@ Page({
     });
   },
   updateTodayTimetable() {
-    const {
-      timetableFixed,
-      time
-    } = this.data;
+    const { timetableFixed, time } = this.data;
     if (!timetableFixed || !time) {
       return;
     }
@@ -121,7 +110,7 @@ Page({
   },
   bootstrap() {
     app.services.getBootstrapInfo(null, {
-      showError: false
+      showError: false,
     });
   },
   fetchHomeCards() {
@@ -195,10 +184,11 @@ Page({
       );
       logger.info("index", "前往 webview", appItem.url);
       return wx.navigateTo({
-        url: "/pages/webview/webview?" +
+        url:
+          "/pages/webview/webview?" +
           Object.keys(appItem)
-          .map((key) => key + "=" + encodeURIComponent(appItem[key]))
-          .join("&"),
+            .map((key) => key + "=" + encodeURIComponent(appItem[key]))
+            .join("&"),
       });
     }
     if (appItem.module) {

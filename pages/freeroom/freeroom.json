@@ -3,7 +3,6 @@
   "navigationBarBackgroundColor": "#ffffff",
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "red-dot": "/components/red-dot/red-dot",
     "room-time-picker": "/components/room-time-picker/room-time-picker"
   }
 }

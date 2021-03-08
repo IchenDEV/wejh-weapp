@@ -6,26 +6,24 @@ Page({
       weekday: 1,
       week: 1,
       startTime: 1,
-      endTime: 1
-    }
-
+      endTime: 1,
+    },
   },
   onLoad: function () {
     app.$store.connect(this, "freeroom");
     this.observe("session", "isLoggedIn");
     this.observe("session", "userInfo");
-    this.observe("session", "time");
     this.observe("session", "freeroom");
     this.observe("session", "unclearedBadges");
   },
   onUnload() {
     this.disconnect();
   },
-  getFreeRoom(callback = this.afterGetFreeRoom) {
+  getFreeRoom() {
     wx.showLoading({
       title: "获取空教室中",
     });
-    app.services.getFreeRoom(callback, {
+    app.services.getFreeRoom(this.afterGetFreeRoom, {
       showError: true,
       data: this.data.form,
     });
@@ -34,19 +32,15 @@ Page({
     wx.hideLoading();
   },
   roomTimeChange: function (e) {
-    const {
-      info
-    } = e.detail;
-    app.$store.setState("session","form",info)
-    this.setPageState({
+    const { info } = e.detail;
+    this.setPageState(
+      {
         form: info,
       },
-      () => {
-        this.getFreeRoom();
-      }
+      this.getFreeRoom
     );
   },
   toggleRefresh: function () {
     this.getFreeRoom();
-  }
+  },
 });

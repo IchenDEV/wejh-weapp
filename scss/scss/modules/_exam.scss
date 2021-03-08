@@ -1,13 +1,20 @@
 .m-exam {
   flex: 1;
-  padding: 0 30rpx 180rpx 30rpx;
+  padding: 0 0 180rpx;
 
   .exam-header {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    padding: 50rpx 25rpx;
+    padding: 50rpx 50rpx;
+    background-color: rgba($color: #ffffff, $alpha: 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: $shadow;
+    position: fixed;
+    z-index: 1000;
+    width: 100vw;
+
     .info {
       display: flex;
       flex-direction: column;
@@ -25,6 +32,7 @@
           height: 36rpx;
         }
       }
+
       .info-item {
         font-size: 30rpx;
         line-height: 160%;
@@ -61,13 +69,24 @@
   }
 
   .exam-content {
+    height: 100vh;
     .exam-list {
       display: flex;
       flex-flow: column nowrap;
       align-items: stretch;
       padding: 5rpx 0 15rpx;
+      height: calc(100vh - 350rpx);
+      padding: 1em;
+      overflow: auto;
+      height: 100vh;
 
       .exam-item {
+        &:first-child {
+          margin-top: 300rpx;
+        }
+        &:last-child {
+          margin-bottom: 100rpx;
+        }
         display: flex;
         flex-direction: column;
         font-size: 30rpx;
@@ -133,11 +152,13 @@
           flex-direction: column;
           overflow: hidden;
           padding: 0;
+
           .detail-item {
             display: flex;
             align-items: center;
             padding: 25rpx 5rpx 20rpx;
             border-top: 1px solid #eee;
+
             .label {
               color: #888;
               width: 150rpx;
@@ -154,6 +175,7 @@
             .name {
               color: $theme-green;
             }
+
             .arrow {
               transform: rotate(180deg);
             }

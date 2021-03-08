@@ -21,8 +21,7 @@ export default class WejhStore {
         var storageData = {};
         try {
           storageData = this.readFromLocalStorage(field);
-        } 
-        catch (err) {
+        } catch (err) {
           logger.warn(
             `Failed to read key '${field}' from local storage with error: `,
             err
@@ -183,14 +182,6 @@ export default class WejhStore {
    * 为特定域的状态赋值
    */
   setState(field, value) {
-    if (this.debug) {
-      logger.debug(
-        "store",
-        `setState called with field: ${field}, value: `,
-        value
-      );
-    }
-
     this.notifyObservers(field, value);
 
     value = {

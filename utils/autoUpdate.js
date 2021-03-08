@@ -1,5 +1,3 @@
-// Ref: https://juejin.cn/post/6844904041470754830
-
 function downLoadAndUpdate(updateManager) {
   wx.showLoading();
   // 静默下载更新小程序新版本

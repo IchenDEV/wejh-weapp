@@ -1,16 +1,29 @@
+import { bind } from "./viewmodel";
+import userInfoStore from "../../utils/store/userInfoStore";
+import { weekday } from "../../const/const";
 const app = getApp();
 
+const followUs = () => {
+  wx.setClipboardData({
+    data: "zjutjh",
+    success() {
+      wx.showModal({
+        title: "提示",
+        icon: "success",
+        showCancel: false,
+        content: "复制成功，粘贴至微信搜索栏关注我们",
+      });
+    },
+  });
+};
 Page({
   data: {
-    weekday: ["日", "一", "二", "三", "四", "五", "六", "日"],
+    weekday,
     devMenuEnabled: false,
   },
   onLoad() {
-    app.$store.connect(this, "home");
-    this.observe("session", "userInfo");
-    this.observe("session", "time");
-    this.observe("session", "unclearedBadges");
-    this.observe("static", "devMenuEnabled");
+    bind(this);
+    userInfoStore.bindView(this, "userInfo");
   },
   onShow() {
     app.badgeManager.updateBadgeForTabBar();
@@ -18,19 +31,7 @@ Page({
   onUnload() {
     this.disconnect();
   },
-  followUs() {
-    wx.setClipboardData({
-      data: "zjutjh",
-      success() {
-        wx.showModal({
-          title: "提示",
-          icon: "success",
-          showCancel: false,
-          content: "复制成功，粘贴至微信搜索栏关注我们",
-        });
-      },
-    });
-  },
+  followUs,
   userBlockClick() {
     if (!this.data.userInfo) {
       return wx.navigateTo({

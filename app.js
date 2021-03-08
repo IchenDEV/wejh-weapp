@@ -2,13 +2,12 @@ import WejhStore from "./utils/store";
 import Fetch from "./utils/fetch";
 import BadgeManager from "./utils/badgeManager";
 import toast from "./utils/toast";
-import Services from "./utils/services";
+import Services from "./utils/service/index";
 import logger from "./utils/logger";
 import autoUpdate from "./utils/autoUpdate";
 import envConfig from "./env";
-import {
-  reportUserInfo
-} from "./utils/reporter"
+import { reportUserInfo } from "./utils/reporter";
+import Store2 from "./utils/store2"
 
 const env = (key) => envConfig[key];
 
@@ -62,11 +61,7 @@ const fetch = Fetch({
   isDev,
 });
 
-const services = Services({
-  fetch,
-  store,
-});
-
+const services = Services({ fetch, store });
 const badgeManager = BadgeManager({
   store,
 });
@@ -74,13 +69,13 @@ const badgeManager = BadgeManager({
 App({
   name: "微精弘",
   version,
+  $store2:new Store2(),
   versionType: versionTypeName,
-  onLaunch: function () {
+  onLaunch: () => {
     autoUpdate();
-    if (!store.getState("session", "isLoggedIn"))
-      this.wxLogin(this.weJHLogin);
+    if (!store.getState("session", "isLoggedIn")) this.wxLogin(this.weJHLogin);
   },
-  wxLogin(callback = this.getOpenId) {
+  wxLogin(callback = this.weJHLogin) {
     wx.login({
       success: (res) => {
         if (!res.code) {
@@ -97,24 +92,22 @@ App({
   weJHLogin(code) {
     this.services.auth(
       (res) => {
-        const {
-          user: userInfo
-        } = res.data.data;
+        const { user: userInfo } = res.data.data;
         reportUserInfo(userInfo);
-      }, {
+      },
+      {
         data: {
           mode: "wechat",
           code: code,
         },
       }
     );
-
   },
   systemInfo,
   isDev: isDev,
   env,
   services,
   fetch,
-  $store: store,
+  $store:store,
   badgeManager,
 });
