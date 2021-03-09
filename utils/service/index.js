@@ -8,7 +8,7 @@ import { getCard } from "./card";
 import { getBorrow } from "./library";
 import { getFreeRoom } from "./freeroom";
 import { getAppList, getBootstrapInfo, getTermTime } from "./app";
-export default function ({ store, fetch }) {
+export default function ({ store, fetch ,store2}) {
   const updateLoggedInState = () => {
     if (
       store.getState("session", "token") &&
@@ -19,6 +19,7 @@ export default function ({ store, fetch }) {
   };
   return {
     $store: store,
+    $store2: store2,
     $fetch: fetch,
     updateLoggedInState,
     auth,

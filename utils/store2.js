@@ -21,7 +21,7 @@ class Store2 {
   bindData = {};
   PageCacheData = {}
   bind(Page, key, pageKey) {
-    const pageId = Page.getPageId();
+    const pageId = Page.route;
     if (!pageKey) pageKey = key;
     if (!this.bindData[key]) this.bindData[key] = []
     this.bindData[key].push({

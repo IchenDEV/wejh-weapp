@@ -8,16 +8,14 @@ Page({
       startTime: 1,
       endTime: 1,
     },
+    freeroom:{}
   },
   onLoad: function () {
-    app.$store.connect(this, "freeroom");
-    this.observe("session", "isLoggedIn");
-    this.observe("session", "userInfo");
-    this.observe("session", "freeroom");
-    this.observe("session", "unclearedBadges");
+    app.$store2.connect(this, true)
+    app.$store2.bind(this, "freeroom");
   },
   onUnload() {
-    this.disconnect();
+    app.$store2.disconnect(this);
   },
   getFreeRoom() {
     wx.showLoading({
@@ -32,9 +30,10 @@ Page({
     wx.hideLoading();
   },
   roomTimeChange: function (e) {
-    const { info } = e.detail;
-    this.setPageState(
-      {
+    const {
+      info
+    } = e.detail;
+    this.setPageState({
         form: info,
       },
       this.getFreeRoom

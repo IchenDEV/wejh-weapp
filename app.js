@@ -60,8 +60,8 @@ const fetch = Fetch({
   $store: store,
   isDev,
 });
-
-const services = Services({ fetch, store });
+const store2 = new Store2()
+const services = Services({ fetch, store ,store2});
 const badgeManager = BadgeManager({
   store,
 });
@@ -69,7 +69,7 @@ const badgeManager = BadgeManager({
 App({
   name: "微精弘",
   version,
-  $store2:new Store2(),
+  $store2:store2,
   versionType: versionTypeName,
   onLaunch: () => {
     autoUpdate();
